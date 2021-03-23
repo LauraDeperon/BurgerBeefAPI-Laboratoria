@@ -1,3 +1,5 @@
+const Model = require('../db/models')
+
 const getAllUsers = (req, res, next) => {
   Model.User.findAll({
     attributes: {
@@ -11,7 +13,7 @@ const getAllUsers = (req, res, next) => {
 };
 
 const getUserById = (req, res, next) => {
-  User.findAll({
+  Model.User.findAll({
     where: {
       id: req.params.id,
     },
@@ -27,7 +29,7 @@ const getUserById = (req, res, next) => {
 
 const postUser = (req, res, next) => {
   const {name, email, password, role, restaurant} = req.body
-  User.create({name, email, password, role, restaurant})
+  Model.User.create({name, email, password, role, restaurant})
     .then((result) => {
       res.send("Usuário criado com sucesso")
     })
@@ -35,7 +37,8 @@ const postUser = (req, res, next) => {
 };
 
 const putUser = (req, res, next) => {
-  User.update(req.body, {
+  const {name, email, password, role, restaurant} = req.body
+  Model.User.update({name, email, password, role, restaurant}, {
     where: {
       id: req.params.id,
     },
@@ -50,7 +53,7 @@ const putUser = (req, res, next) => {
 };
 
 const deleteUser = (req, res, next) => {
-  User.destroy({
+  Model.User.destroy({
     where: {
       id: req.params.id
     }
