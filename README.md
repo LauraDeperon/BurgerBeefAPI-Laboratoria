@@ -2,15 +2,15 @@
 
 ## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação do projeto](#5-critérios-de-aceitação-do-projeto)
-* [6. Entrega](#6-entrega)
-* [7. Primeiros Passos](#7-primeiros-passos)
-* [8. HTTP API Checklist](#8-http-api-checklist)
-* [9. Hacker Edition](#9-hacker-edition)
+- [1. Prefácio](#1-prefácio)
+- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
+- [4. Considerações gerais](#4-considerações-gerais)
+- [5. Critérios de aceitação do projeto](#5-critérios-de-aceitação-do-projeto)
+- [6. Entrega](#6-entrega)
+- [7. Primeiros Passos](#7-primeiros-passos)
+- [8. HTTP API Checklist](#8-http-api-checklist)
+- [9. Hacker Edition](#9-hacker-edition)
 
 ## 1. Prefácio
 
@@ -72,55 +72,55 @@ body, status codes, etc), **JSON**, **conexão com uma base de dados** (PostgreS
 
 ### Node
 
-* [ ] Instalar e usar módulos. ([npm](https://www.npmjs.com/))
-* [ ] [Configuração de package.json.](https://docs.npmjs.com/files/package.json)
-* [ ] [Configuração de npm-scripts](https://docs.npmjs.com/misc/scripts)
+- [ ] Instalar e usar módulos. ([npm](https://www.npmjs.com/))
+- [ ] [Configuração de package.json.](https://docs.npmjs.com/files/package.json)
+- [ ] [Configuração de npm-scripts](https://docs.npmjs.com/misc/scripts)
 
 ### Testes
 
-* [ ] [Teste unitário.](https://jestjs.io/docs/pt-BR/getting-started)
-* [ ] [Teste assíncrono.](https://jestjs.io/docs/pt-BR/asynchronous)
-* [ ] Testes de integração.
+- [ ] [Teste unitário.](https://jestjs.io/docs/pt-BR/getting-started)
+- [ ] [Teste assíncrono.](https://jestjs.io/docs/pt-BR/asynchronous)
+- [ ] Testes de integração.
 
 ### Estrutura do código e guia de estilo
 
-* [ ] Organizar e dividir o código em módulos (Modularização)
-* [ ] Uso de identificadores descritivos (Nomenclatura | Semântica)
-* [ ] Uso de linter (ESLINT)
+- [ ] Organizar e dividir o código em módulos (Modularização)
+- [ ] Uso de identificadores descritivos (Nomenclatura | Semântica)
+- [ ] Uso de linter (ESLINT)
 
 ### Git e GitHub
 
-* [ ] Uso de comandos de git (add | commit | pull | status | push)
-* [ ] Gerenciamento de repositorios de GitHub (clone | fork | gh-pages)
-* [ ] Colaboração no Github (branches | pull requests | | tags)
-* [ ] Organização no Github (projects | issues | labels | milestones)
+- [ ] Uso de comandos de git (add | commit | pull | status | push)
+- [ ] Gerenciamento de repositorios de GitHub (clone | fork | gh-pages)
+- [ ] Colaboração no Github (branches | pull requests | | tags)
+- [ ] Organização no Github (projects | issues | labels | milestones)
 
 ### Express
 
-* [ ] Rotas.
-* [ ] `middlewares`
+- [ ] Rotas.
+- [ ] `middlewares`
 
 ### HTTP
 
-* [ ] [Request, Response.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Mensagens)
-* [ ] Headers.
-* [ ] Body.
-* [ ] [Verbos HTTP.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods)
-* [ ] [Códigos de status de HTTP.](https://dev.to/khaosdoctor/the-complete-guide-to-status-codes-for-meaningful-rest-apis-1-5c5)
-* [ ] Encodings e `JSON`.
-* [ ] [CORS.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Controle_Acesso_CORS)
+- [ ] [Request, Response.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Mensagens)
+- [ ] Headers.
+- [ ] Body.
+- [ ] [Verbos HTTP.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods)
+- [ ] [Códigos de status de HTTP.](https://dev.to/khaosdoctor/the-complete-guide-to-status-codes-for-meaningful-rest-apis-1-5c5)
+- [ ] Encodings e `JSON`.
+- [ ] [CORS.](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Controle_Acesso_CORS)
 
 ### Autenticação
 
-* [ ] `JWT`
-* [ ] Armazenamento e acesso de senhas.
+- [ ] `JWT`
+- [ ] Armazenamento e acesso de senhas.
 
 ### Base de dados (PostgreSQL)
 
-* [ ] Instalação.
-* [ ] Conexão através de cliente.
-* [ ] String de conexão
-* [ ] Queries e comandos (criação, leitura, atualização, eliminação)
+- [ ] Instalação.
+- [ ] Conexão através de cliente.
+- [ ] String de conexão
+- [ ] Queries e comandos (criação, leitura, atualização, eliminação)
 
 ## 4. Considerações gerais
 
@@ -136,27 +136,27 @@ A API deve expor os seguintes endpoints:
 
 #### 5.1.1 `/users`
 
-* `GET /users`
-* `GET /users/:uid`
-* `POST /users`
-* `PUT /users/:uid`
-* `DELETE /users/:uid`
+- `GET /users`
+- `GET /users/:uid`
+- `POST /users`
+- `PUT /users/:uid`
+- `DELETE /users/:uid`
 
 #### 5.1.2 `/products`
 
-* `GET /products`
-* `GET /products/:productid`
-* `POST /products`
-* `PUT /products/:productid`
-* `DELETE /products/:productid`
+- `GET /products`
+- `GET /products/:productid`
+- `POST /products`
+- `PUT /products/:productid`
+- `DELETE /products/:productid`
 
 #### 5.1.3 `/orders`
 
-* `GET /orders`
-* `GET /orders/:orderId`
-* `POST /orders`
-* `PUT /orders/:orderId`
-* `DELETE /orders/:orderId`
+- `GET /orders`
+- `GET /orders/:orderId`
+- `POST /orders`
+- `PUT /orders/:orderId`
+- `DELETE /orders/:orderId`
 
 ## 6. Entrega
 
@@ -184,27 +184,27 @@ no Heroku, então precisaremos configurar e conectá-lo ao nosso projeto.
 
 ### Conteúdos importantes
 
-* [Como funciona uma requisição HTTP, header e body](https://medium.com/clebertech/como-funciona-uma-requisi%C3%A7%C3%A3o-http-cf76f66fe36e)
-para relembrarmos, pois vai ser super importante
-* [Outro artigo sobre requisição HTTP, header e body](http://gabsferreira.com/o-que-e-o-http-como-funciona-request-respose/)
-* [Sequelize - documentação oficial](https://sequelize.org/master/manual/)
-* [Express - documentação em português](https://expressjs.com/pt-br/) -
-pode não estar 100% atualizada
-* [PostgreSQL - documentação mais recente (em inglês)](https://www.postgresql.org/docs/)
-* [PostgreSQL - documentação em português para a versão 8](http://pgdocptbr.sourceforge.net/pg80/index.html)
-* [Exemplo](https://github.com/danielbdias/rest-api-with-db-in-nodejs)
-de aplicação construída com NodeJS e Postgres, por Daniel Dias
-* [Artigo sobre MVC](https://www.profissionaisti.com.br/2014/10/o-conceito-e-as-duvidas-sobre-o-mvc/)
-* [Documentação do Postman](https://learning.getpostman.com/docs/postman/launching-postman/introduction/)
-* [Vídeo](https://www.youtube.com/watch?v=nSO12ItKDds)
-sobre como utilizar o Postman (até o minuto 10)
-* [Outro vídeo](https://www.youtube.com/watch?v=rI9rhM6iJoI)
-sobre como utilizar o Postman
+- [Como funciona uma requisição HTTP, header e body](https://medium.com/clebertech/como-funciona-uma-requisi%C3%A7%C3%A3o-http-cf76f66fe36e)
+  para relembrarmos, pois vai ser super importante
+- [Outro artigo sobre requisição HTTP, header e body](http://gabsferreira.com/o-que-e-o-http-como-funciona-request-respose/)
+- [Sequelize - documentação oficial](https://sequelize.org/master/manual/)
+- [Express - documentação em português](https://expressjs.com/pt-br/) -
+  pode não estar 100% atualizada
+- [PostgreSQL - documentação mais recente (em inglês)](https://www.postgresql.org/docs/)
+- [PostgreSQL - documentação em português para a versão 8](http://pgdocptbr.sourceforge.net/pg80/index.html)
+- [Exemplo](https://github.com/danielbdias/rest-api-with-db-in-nodejs)
+  de aplicação construída com NodeJS e Postgres, por Daniel Dias
+- [Artigo sobre MVC](https://www.profissionaisti.com.br/2014/10/o-conceito-e-as-duvidas-sobre-o-mvc/)
+- [Documentação do Postman](https://learning.getpostman.com/docs/postman/launching-postman/introduction/)
+- [Vídeo](https://www.youtube.com/watch?v=nSO12ItKDds)
+  sobre como utilizar o Postman (até o minuto 10)
+- [Outro vídeo](https://www.youtube.com/watch?v=rI9rhM6iJoI)
+  sobre como utilizar o Postman
 
 ### Conteúdo extra
 
-* [Curso de modelagem de dados](https://www.youtube.com/watch?v=Q_KTYFgvu1s) - recomendável
-assistir a partir desse até pelo menos o episódio sobre a "quinta forma normal"
+- [Curso de modelagem de dados](https://www.youtube.com/watch?v=Q_KTYFgvu1s) - recomendável
+  assistir a partir desse até pelo menos o episódio sobre a "quinta forma normal"
 
 ## Tutoriais
 
@@ -220,36 +220,36 @@ e por aí vai) e procure aplicar o que aprendeu em seu projeto. Além disso eles
 ter bugs ou desatualizações. Caso aconteça, aproveite para praticar
 suas habilidades de _debug_!
 
-* [Tutorial super iniciante](https://pplware.sapo.pt/tutoriais/restful-api-node-js/)
-de como funcionam as rotas e sintaxe do Express, sem banco, somente com um arquivo.
+- [Tutorial super iniciante](https://pplware.sapo.pt/tutoriais/restful-api-node-js/)
+  de como funcionam as rotas e sintaxe do Express, sem banco, somente com um arquivo.
 
-* [Tutorial simples](https://imasters.com.br/back-end/api-http-rest-conceito-e-exemplo-em-node-js)
-do iMasters, somente com um arquivo e sem utilizar nenhum banco de dados
-(esse papel é feito por um arquivo JSON). O link para o arquivo de testes
-está quebrado no texto, mas ele pode ser encontrado [aqui](https://github.com/andersonirias/api-http-rest/tree/master/teste).
-Este arquivo tem as informações necessárias para testar as requisições no
-Postman - explore cada requisição e veja como as informações
-(especialmente as do _body_) são passadas!
+- [Tutorial simples](https://imasters.com.br/back-end/api-http-rest-conceito-e-exemplo-em-node-js)
+  do iMasters, somente com um arquivo e sem utilizar nenhum banco de dados
+  (esse papel é feito por um arquivo JSON). O link para o arquivo de testes
+  está quebrado no texto, mas ele pode ser encontrado [aqui](https://github.com/andersonirias/api-http-rest/tree/master/teste).
+  Este arquivo tem as informações necessárias para testar as requisições no
+  Postman - explore cada requisição e veja como as informações
+  (especialmente as do _body_) são passadas!
 
-* [Tutorial mais estruturado](https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd)
-utilizando MongoDB. Não é o mesmo tipo de banco que iremos utilizar no projeto,
-mas esse tutorial já traz a estrutura da aplicação mais separada, no caminho do
-que queremos implementar no projeto. Você vai precisar instalar o MongoDB.
+- [Tutorial mais estruturado](https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd)
+  utilizando MongoDB. Não é o mesmo tipo de banco que iremos utilizar no projeto,
+  mas esse tutorial já traz a estrutura da aplicação mais separada, no caminho do
+  que queremos implementar no projeto. Você vai precisar instalar o MongoDB.
 
-* [Tutorial com Express e Sequelize](https://medium.com/italo-gouveia/criando-minha-primeira-api-rest-com-node-js-express-sequelize-e-mysql-para-cadastro-de-usu%C3%A1rios-1131a3e44ba1)
-estruturado de forma mais parecida com o nosso projeto. Esse tutorial utiliza
-o MySQL como banco, você vai precisar instalar e criar um novo banco antes de começar.
-Esse tutorial não está 100% perfeito (você vai encontrar alguns erros pelo caminho)
-mas é bastante válido para entender melhor a estrutura do nosso projeto e
-como o Sequelize e o Express trabalham juntos.
+- [Tutorial com Express e Sequelize](https://medium.com/italo-gouveia/criando-minha-primeira-api-rest-com-node-js-express-sequelize-e-mysql-para-cadastro-de-usu%C3%A1rios-1131a3e44ba1)
+  estruturado de forma mais parecida com o nosso projeto. Esse tutorial utiliza
+  o MySQL como banco, você vai precisar instalar e criar um novo banco antes de começar.
+  Esse tutorial não está 100% perfeito (você vai encontrar alguns erros pelo caminho)
+  mas é bastante válido para entender melhor a estrutura do nosso projeto e
+  como o Sequelize e o Express trabalham juntos.
 
-* [Tutorial com Express e MongoDB](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-1-criando-e-listando-dados/)
-também estruturado de forma _similar_. Esse tutorial utiliza o banco MongoDB,
-que é um banco _nosql_, então não utiliza o Sequelize. Ele tem 4 partes,
-fazendo só a primeira parte já dá uma boa ideia.
+- [Tutorial com Express e MongoDB](https://woliveiras.com.br/posts/construindo-uma-api-com-node-js-parte-1-criando-e-listando-dados/)
+  também estruturado de forma _similar_. Esse tutorial utiliza o banco MongoDB,
+  que é um banco _nosql_, então não utiliza o Sequelize. Ele tem 4 partes,
+  fazendo só a primeira parte já dá uma boa ideia.
 
-* [Tutorial extra](https://medium.com/@victorsteven/restful-api-with-nodejs-express-postgresql-sequelize-travis-mocha-coveralls-and-code-climate-f28715f7a014)
-para desenvolvimento de API com NodeJS, Postgres, Sequelize e outras libs - em inglês
+- [Tutorial extra](https://medium.com/@victorsteven/restful-api-with-nodejs-express-postgresql-sequelize-travis-mocha-coveralls-and-code-climate-f28715f7a014)
+  para desenvolvimento de API com NodeJS, Postgres, Sequelize e outras libs - em inglês
 
 **Importante**: Quando utilizamos tutoriais, fazemos muito copia-e-cola de código.
 Ás vezes, quando exibidos na tela, alguns caracteres (especialmente aspas duplas
@@ -261,33 +261,33 @@ A mesma coisa quando copiamos e colamos comandos: se algum comando no terminal
 não for reconhecido, verifique se o duplo hífen (--) não acabou
 sendo substituído por um travessão (-).
 
-***
+---
 
 ## 8. HTTP API Checklist
 
 ### 8.1 `/users`
 
-* [ ] `GET /users`
-* [ ] `GET /users/:uid`
-* [ ] `POST /users`
-* [ ] `PUT /users/:uid`
-* [ ] `DELETE /users/:uid`
+- [ ] `GET /users`
+- [ ] `GET /users/:uid`
+- [ ] `POST /users`
+- [ ] `PUT /users/:uid`
+- [ ] `DELETE /users/:uid`
 
 ### 8.2 `/products`
 
-* [ ] `GET /products`
-* [ ] `GET /products/:productid`
-* [ ] `POST /products`
-* [ ] `PUT /products/:productid`
-* [ ] `DELETE /products/:productid`
+- [ ] `GET /products`
+- [ ] `GET /products/:productid`
+- [ ] `POST /products`
+- [ ] `PUT /products/:productid`
+- [ ] `DELETE /products/:productid`
 
 ### 8.3 `/orders`
 
-* [ ] `GET /orders`
-* [ ] `GET /orders/:orderid`
-* [ ] `POST /orders`
-* [ ] `PUT /orders/:orderid`
-* [ ] `DELETE /orders/:orderid`
+- [ ] `GET /orders`
+- [ ] `GET /orders/:orderid`
+- [ ] `POST /orders`
+- [ ] `PUT /orders/:orderid`
+- [ ] `DELETE /orders/:orderid`
 
 ## 9. Hacker Edition
 
@@ -295,13 +295,13 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e
 ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais
 sobre os objetivos de aprendizagem do projeto.
 
-* Endpoint de autenticação: `POST /auth`
-* Middleware de autenticação
-* Middleware de erros
-* Outros endpoints
-* Criar a documentação da API
-* Testes unitários para cada função
-* Testes _"end to end"_ ou _e2e_ (de uma ponta a outra)
+- Endpoint de autenticação: `POST /auth`
+- Middleware de autenticação
+- Middleware de erros
+- Outros endpoints
+- Criar a documentação da API
+- Testes unitários para cada função
+- Testes _"end to end"_ ou _e2e_ (de uma ponta a outra)
 
 Se quiser, também poderá se aventurar no Docker e dar os primeiros passos com containers.
 
@@ -317,21 +317,21 @@ que rodamos em nossa máquina física :)
 
 ### 9.1 Conteúdos importantes
 
-* [JSON web Token](https://jwt.io/)
-* [jsonwebtoken library](https://www.npmjs.com/package/jsonwebtoken)
-* [bcryptjs](https://www.npmjs.com/package/bcryptjs)
-* [docker](https://docs.docker.com/)
-* [docker compose](https://docs.docker.com/compose/)
-* [Docker para desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores)
-(livro completo)
-* [Tutorial com Docker](https://github.com/rfukui/do-excel-ao-sistema-complexo)
+- [JSON web Token](https://jwt.io/)
+- [jsonwebtoken library](https://www.npmjs.com/package/jsonwebtoken)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [docker](https://docs.docker.com/)
+- [docker compose](https://docs.docker.com/compose/)
+- [Docker para desenvolvedores](https://github.com/gomex/docker-para-desenvolvedores)
+  (livro completo)
+- [Tutorial com Docker](https://github.com/rfukui/do-excel-ao-sistema-complexo)
 
 ### 9.2 Checklist Hacker Edition
 
-* [ ] `POST /auth`)
-* [ ] Middleware de autenticação
-* [ ] Middleware de erros
-* [ ] Documentação da API
-* [ ] Testes unitários
-* [ ] Testes _e2e_
-* [ ] Docker
+- [ ] `POST /auth`)
+- [ ] Middleware de autenticação
+- [ ] Middleware de erros
+- [ ] Documentação da API
+- [ ] Testes unitários
+- [ ] Testes _e2e_
+- [ ] Docker

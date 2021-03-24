@@ -1,28 +1,66 @@
 const Model = require('../db/models');
 
-const getAllProducts = (req, res) => {
-  console.log("Lista de todos os produtos!")
-  res.send("Request getAllProducts feita")
-}
+const getAllProducts = (req, res, next) => {
+  Model.Product.findAll()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(next);
+};
 
-const getProduct = (req, res) => {
-  console.log("Produto #id")
-  res.send("Request getProduct feita")
-}
+const getProductById = (req, res, next) => {
+  Model.Product.findAll({
+    where: {
+      id: req.params.productid,
+    },
+  })
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(next);
+};
 
-const postProduct = (req, res) => {
-  console.log("Produto criado com sucesso")
-  res.send("Request postProduct feita")
-}
+const postProduct = (req, res, next) => {
+  const { name, flavor, complement, price, image, type, subtype } = req.body;
+  Model.Product.create({ name, flavor, complement, price, image, type, subtype })
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch(next);
+};
 
-const putProduct = (req, res) => {
-  console.log("Produto #id alterado com sucesso")
-  res.send("Request putProductfeita")
-}
+const putProduct = (req, res, next) => {
+  const { name, flavor, complement, price, image, type, subtype } = req.body;
+  Model.Product.create(
+    { name, flavor, complement, price, image, type, subtype },
+    {
+      where: {
+        id: req.params.productid,
+      },
+    }
+  )
+    .then(() => {
+      res.status(200).send('Produto alterado com sucesso');
+    })
+    .catch(next);
+};
 
-const deleteProduct = (req, res) => {
-  console.log("Produto #id excluído com sucesso")
-  res.send("Request deleteProduct feita")
-}
+const deleteProduct = (req, res, next) => {
+  Model.Product.destroy({
+    where: {
+      id: req.params.productid,
+    },
+  })
+    .then(() => {
+      res.status(200).send('Produto excluído com sucesso');
+    })
+    .catch(next);
+};
 
-module.exports = { getAllProducts, getProduct, postProduct, putProduct, deleteProduct }
+module.exports = {
+  getAllProducts,
+  getProductById,
+  postProduct,
+  putProduct,
+  deleteProduct,
+};
