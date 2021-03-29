@@ -1,11 +1,8 @@
 const Model = require('../db/models');
+const bcrypt = require('bcrypt');
 
 const getAllUsers = (req, res, next) => {
-  Model.User.findAll({
-    attributes: {
-      exclude: ['password'],
-    },
-  })
+  Model.User.findAll()
     .then((result) => {
       res.status(200).json(result);
     })
@@ -17,9 +14,6 @@ const getUserById = (req, res, next) => {
     where: {
       id: req.params.id,
     },
-    attributes: {
-      exclude: ['password'],
-    },
   })
     .then((result) => {
       res.status(200).json(result);
@@ -28,20 +22,33 @@ const getUserById = (req, res, next) => {
 };
 
 const postUser = (req, res, next) => {
-  const { name, email, password, role, restaurant } = req.body;
-  if (
-    req.body.email !== '' &&
-    req.body.password !== '' &&
-    req.body.role !== '' &&
-    req.body.restaurant !== ''
-  ) {
-    Model.User.create({ name, email, password, role, restaurant })
+  const { name, email, role, restaurant } = req.body;
+  const password = req.body.password;
+  if (req.body.name == '') {
+    res.status(400).send({ code: '400', message: 'Name can not be empty' });
+  } else if (req.body.email == '') {
+    res.status(400).send({ code: '400', message: 'Email can not be empty' });
+  } else if (req.body.password == '') {
+    res.status(400).send({ code: '400', message: 'Password can not be empty' });
+  } else if (req.body.role == '') {
+    res.status(400).send({ code: '400', message: 'Role can not be empty' });
+  } else if (req.body.restaurant == ' ') {
+    res
+      .status(400)
+      .send({ code: '400', message: 'Restaurant can not be empty' });
+  } else {
+    Model.User.create({
+      name,
+      email,
+      password: bcrypt.hashSync(password, 10),
+      role,
+      restaurant,
+    })
       .then((result) => {
         res.status(200).json(result);
+        console.log(req.body.name);
       })
       .catch(next);
-  } else {
-    res.send('Missing required data');
   }
 };
 
@@ -52,9 +59,6 @@ const putUser = (req, res, next) => {
     {
       where: {
         id: req.params.id,
-      },
-      attributes: {
-        exclude: ['password'],
       },
     }
   )
