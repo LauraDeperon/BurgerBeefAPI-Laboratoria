@@ -1,5 +1,6 @@
 const Model = require('../db/models');
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 const getAllUsers = (req, res, next) => {
   Model.User.findAll()
