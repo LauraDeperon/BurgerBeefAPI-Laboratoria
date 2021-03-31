@@ -5,10 +5,16 @@ require('dotenv').config();
 const getAllUsers = (req, res) => {
   Model.User.findAll()
     .then((result) => {
-      res.status(200).json(result);
+      if (result.length < 1) {
+        return res
+          .status(404)
+          .json({ code: 404, message: "Don't have any user created yet!" });
+      }
+      return res.status(200).json(result);
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 400, message: err.message });
+    });
 };
 
 const getUserById = (req, res, next) => {
@@ -18,10 +24,14 @@ const getUserById = (req, res, next) => {
     },
   })
     .then((result) => {
-      res.status(200).json(result);
+      if (result.length > 1) {
+        res.status(200).json(result);
+      }
+      return res.status(404).json({ code: 404, message: 'User not found!' });
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    });
+    .catch((err) => {
+      return res.status(400).json({ code: 400, message: err.message });
+    });
 };
 
 const postUser = (req, res) => {
@@ -35,10 +45,22 @@ const postUser = (req, res) => {
     res.status(400).send({ code: '400', message: 'Password can not be empty' });
   } else if (req.body.role == '') {
     res.status(400).send({ code: '400', message: 'Role can not be empty' });
-  } else if (req.body.restaurant == ' ') {
+  } else if (req.body.restaurant == '') {
     res
       .status(400)
       .send({ code: '400', message: 'Restaurant can not be empty' });
+    // }else if( ) {
+    //   Model.User.findOne({
+    //     where: {
+    //       email: req.body.email
+    //     },
+    //   })
+    //     .then((result) => {
+    //       if (result.length > 1) {
+    //         res.status(200).json(result);
+    //       }
+    //       return res.status(404).json({ code: 404, message: 'User not found!' });
+    //     })
   } else {
     Model.User.create({
       name,
@@ -48,11 +70,17 @@ const postUser = (req, res) => {
       restaurant,
     })
       .then((result) => {
-        res.status(200).json(result);
-        console.log(req.body.name);
+        res.status(200).json({
+          id: result.id,
+          name: result.name,
+          email: result.email,
+          role: result.role,
+          restaurant: result.restaurant,
+        });
       })
-      .catch ((err)=> {
-        return res.status(400).json({ code:500, message: err.message });      })
+      .catch((err) => {
+        return res.status(400).json({ code: 500, message: err.message });
+      });
   }
 };
 
@@ -69,9 +97,9 @@ const putUser = (req, res) => {
     .then(() => {
       res.status(200).send('Usuário alterado com sucesso');
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });
-    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 const deleteUser = (req, res) => {
@@ -83,9 +111,9 @@ const deleteUser = (req, res) => {
     .then(() => {
       res.status(200).send('Usuário excluído com sucesso');
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });
-    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 module.exports = { getAllUsers, getUserById, postUser, putUser, deleteUser };

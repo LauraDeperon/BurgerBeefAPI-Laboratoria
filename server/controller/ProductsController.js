@@ -5,8 +5,9 @@ const getAllProducts = (req, res) => {
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 const getProductById = (req, res) => {
@@ -18,18 +19,28 @@ const getProductById = (req, res) => {
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 const postProduct = (req, res) => {
   const { name, flavor, complement, price, image, type, subtype } = req.body;
-  Model.Product.create({ name, flavor, complement, price, image, type, subtype })
+  Model.Product.create({
+    name,
+    flavor,
+    complement,
+    price,
+    image,
+    type,
+    subtype,
+  })
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 const putProduct = (req, res) => {
@@ -45,8 +56,9 @@ const putProduct = (req, res) => {
     .then(() => {
       res.status(200).send('Produto alterado com sucesso');
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 const deleteProduct = (req, res) => {
@@ -58,8 +70,9 @@ const deleteProduct = (req, res) => {
     .then(() => {
       res.status(200).send('Produto excluído com sucesso');
     })
-    .catch ((err)=> {
-      return res.status(400).json({ code:500, message: err.message });    })
+    .catch((err) => {
+      return res.status(400).json({ code: 500, message: err.message });
+    });
 };
 
 module.exports = {

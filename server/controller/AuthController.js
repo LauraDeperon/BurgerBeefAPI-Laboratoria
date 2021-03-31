@@ -7,7 +7,7 @@ const Model = require('../db/models');
 const permit = new Bearer();
 
 module.exports = {
-  login(req, res, next) {
+  login(req, res) {
     const { email, password } = req.body;
 
     Model.User.findOne({
@@ -15,14 +15,24 @@ module.exports = {
         email: email,
       },
     }).then((user) => {
-      if (!user) return res.status(401).json({ error: 'email not found' });
+      if (!user)
+        return res.status(400).json({ code: 400, message: 'email not found' });
       if (!bcrypt.compareSync(password, user.password)) {
-        return res.status(401).json({ error: 'invalid password' });
+        return res.status(401).json({ code: 401, message: 'invalid password' });
       }
-      let jwtPayload = { email: user.email };
+      let jwtPayload = { email: user.email, id: user.id };
       let token = jwt.sign(jwtPayload, process.env.JWT_SECRET);
 
-      return res.status(200).json({ token });
+      return res
+        .status(200)
+        .json({
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          restaurant: user.restaurant,
+          token,
+        });
     });
   },
 
@@ -33,19 +43,17 @@ module.exports = {
     // No token found, so ask for authentication.
     if (!token) {
       permit.fail(res);
-      return res.status(401).json({ error: 'authentication required!' });
+      return res.status(401).json({ error: "authentication required!" });
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         permit.fail(res);
-        return res.status(401).json({ error: 'failed to authenticate token!' });
+        return res.status(401).json({ error: "failed to authenticate token!" });
       }
 
-      //save username for next middleware
-      req.email = decoded.email;
+      req.id = decoded.id;
       next();
     });
   },
 };
-

@@ -10,10 +10,8 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        validate: {
-          notNull: true,
-          unique: true,
-        },
+        notNull: true,
+        unique: true,
       },
       flavor: {
         type: Sequelize.STRING,
