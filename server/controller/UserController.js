@@ -2,16 +2,17 @@ const Model = require('../db/models');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-const getAllUsers = (req, res, next) => {
+const getAllUsers = (req, res) => {
   Model.User.findAll()
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch(next);
+    .catch ((err)=> {
+      return res.status(400).json({ code:500, message: err.message });    })
 };
 
 const getUserById = (req, res, next) => {
-  Model.User.findAll({
+  Model.User.findOne({
     where: {
       id: req.params.id,
     },
@@ -19,10 +20,11 @@ const getUserById = (req, res, next) => {
     .then((result) => {
       res.status(200).json(result);
     })
-    .catch(next);
+    .catch ((err)=> {
+      return res.status(400).json({ code:500, message: err.message });    });
 };
 
-const postUser = (req, res, next) => {
+const postUser = (req, res) => {
   const { name, email, role, restaurant } = req.body;
   const password = req.body.password;
   if (req.body.name == '') {
@@ -49,11 +51,12 @@ const postUser = (req, res, next) => {
         res.status(200).json(result);
         console.log(req.body.name);
       })
-      .catch(next);
+      .catch ((err)=> {
+        return res.status(400).json({ code:500, message: err.message });      })
   }
 };
 
-const putUser = (req, res, next) => {
+const putUser = (req, res) => {
   const { name, email, password, role, restaurant } = req.body;
   Model.User.update(
     { name, email, password, role, restaurant },
@@ -66,10 +69,12 @@ const putUser = (req, res, next) => {
     .then(() => {
       res.status(200).send('Usuário alterado com sucesso');
     })
-    .catch(next);
+    .catch ((err)=> {
+      return res.status(400).json({ code:500, message: err.message });
+    })
 };
 
-const deleteUser = (req, res, next) => {
+const deleteUser = (req, res) => {
   Model.User.destroy({
     where: {
       id: req.params.id,
@@ -78,7 +83,9 @@ const deleteUser = (req, res, next) => {
     .then(() => {
       res.status(200).send('Usuário excluído com sucesso');
     })
-    .catch(next);
+    .catch ((err)=> {
+      return res.status(400).json({ code:500, message: err.message });
+    })
 };
 
 module.exports = { getAllUsers, getUserById, postUser, putUser, deleteUser };
