@@ -16,42 +16,40 @@ module.exports = {
       },
     }).then((user) => {
       if (!user)
-        return res.status(400).json({ code: 400, message: 'email not found' });
+        return res.status(400).json({ code: 400, message: 'Email not found' });
       if (!bcrypt.compareSync(password, user.password)) {
-        return res.status(401).json({ code: 401, message: 'invalid password' });
+        return res.status(401).json({ code: 401, message: 'Invalid password' });
       }
       let jwtPayload = { email: user.email, id: user.id };
       let token = jwt.sign(jwtPayload, process.env.JWT_SECRET);
 
-      return res
-        .status(200)
-        .json({
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-          restaurant: user.restaurant,
-          token,
-        });
+      return res.status(200).json({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        restaurant: user.restaurant,
+        token,
+      });
     });
   },
 
   auth(req, res, next) {
-    // Try to find the bearer token in the request.
     const token = permit.check(req);
-
-    // No token found, so ask for authentication.
     if (!token) {
       permit.fail(res);
-      return res.status(401).json({ code:401, message: "authentication required!" });
+      return res
+        .status(401)
+        .json({ code: 401, message: 'Authentication required!' });
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         permit.fail(res);
-        return res.status(401).json({ code:401, message: "failed to authenticate token!" });
+        return res
+          .status(401)
+          .json({ code: 401, message: 'Failed to authenticate token!' });
       }
-
       req.id = decoded.id;
       next();
     });

@@ -10,8 +10,8 @@ const getAllUsers = (req, res) => {
     .then((result) => {
       if (result.length === 0) {
         return res
-          .status(404)
-          .json({ code: 404, message: "Don't have any user created yet!" });
+          .status(204)
+          .json({ code: 204, message: "Don't have any user created yet!" });
       }
       return res.status(200).json(result);
     })
