@@ -15,7 +15,7 @@ const getOrder = (req, res, id) => {
     },
     include: {
       model: Model.Product,
-      as: 'Product',
+      as: 'products',
       attributes: ['id', 'name', 'flavor', 'complement'],
       through: {
         model: Model.ProductsOrder,
@@ -31,14 +31,14 @@ const getOrder = (req, res, id) => {
 
       result = result.toJSON();
 
-      const orderedItems = result.Product.map((product) => ({
+      const orderedItems = result.products.map((product) => ({
         ...product,
         qtd: product.qtd.qtd,
       }));
 
       const completeOrder = {
         ...result,
-        Product: orderedItems,
+        products: orderedItems,
       };
 
       return res.status(200).json(completeOrder);
