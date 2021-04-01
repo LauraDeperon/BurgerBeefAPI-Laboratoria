@@ -43,13 +43,13 @@ module.exports = {
     // No token found, so ask for authentication.
     if (!token) {
       permit.fail(res);
-      return res.status(401).json({ error: "authentication required!" });
+      return res.status(401).json({ code:401, message: "authentication required!" });
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         permit.fail(res);
-        return res.status(401).json({ error: "failed to authenticate token!" });
+        return res.status(401).json({ code:401, message: "failed to authenticate token!" });
       }
 
       req.id = decoded.id;
