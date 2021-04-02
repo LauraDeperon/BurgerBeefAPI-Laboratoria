@@ -3,14 +3,9 @@
 ## Índice
 
 - [1. Prefácio](#1-prefácio)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação do projeto](#5-critérios-de-aceitação-do-projeto)
-- [6. Entrega](#6-entrega)
-- [7. Primeiros Passos](#7-primeiros-passos)
-- [8. HTTP API Checklist](#8-http-api-checklist)
-- [9. Hacker Edition](#9-hacker-edition)
+- [2. Burger Beef API](#2-Burguer-Beef-API)
+- [3. Tecnologias Utilizadas](#3-tecnologias-utilizadas)
+- [4. Desenvolvimento](#4-desenvolvimento)
 
 ## 1. Prefácio
 
@@ -19,11 +14,11 @@
 
 ## 2. Burger Beef API
 
-### 5.1 API
+### 2.1 API
 
 A API dispõe dos seguintes endpoints:
 
-#### 5.1.1 `/users`
+#### 2.1.1 `/users`
 
 - `GET /users`
 - `GET /users/:uid`
@@ -31,7 +26,7 @@ A API dispõe dos seguintes endpoints:
 - `PUT /users/:uid`
 - `DELETE /users/:uid`
 
-#### 5.1.2 `/products`
+#### 2.1.2 `/products`
 
 - `GET /products`
 - `GET /products/:productid`
@@ -39,7 +34,7 @@ A API dispõe dos seguintes endpoints:
 - `PUT /products/:productid`
 - `DELETE /products/:productid`
 
-#### 5.1.3 `/orders`
+#### 2.1.3 `/orders`
 
 - `GET /orders`
 - `GET /orders/:orderId`
@@ -47,11 +42,11 @@ A API dispõe dos seguintes endpoints:
 - `PUT /orders/:orderId`
 - `DELETE /orders/:orderId`
 
-#### 5.1.4 `/auth`
+#### 2.1.4 `/auth`
 
 - `POST /auth`
 
-## 4. Tecnologias Utilizadas:
+## 3. Tecnologias Utilizadas:
 
 * `Node.js`
 * `Express`
@@ -62,6 +57,6 @@ A API dispõe dos seguintes endpoints:
 * `Postman (para teste de requisições)`
 * `Heroku (deploy da API)`
 
-## 7. Desenvolvimento
+## 4. Desenvolvimento
 
 [Laura Deperon](https://github.com/LauraDeperon)
